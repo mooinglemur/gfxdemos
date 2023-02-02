@@ -12,8 +12,16 @@ start:
 
 xscale:
     .res 1
+addrm_off:
+    .res 1
+addrl_off:
+    .res 1
 tmp0:
     .res 1
+tmp1:
+    .res 1
+ysub:
+    .res 2
 
 .segment "CODE"
 
@@ -96,8 +104,42 @@ main:
     stz xscale
 
 loop:
+    stz ysub
+    stz ysub+1
     inc xscale
     
+    lda xscale
+    lsr
+    lsr
+    lsr
+    eor #$1F
+    sta addrl_off
+
+    lda xscale
+    lsr
+    lsr
+    lsr
+    lsr
+    lsr
+    eor #$7
+    clc
+    adc #$10 ; for sprite pos #1
+    sta addrm_off
+
+    lda xscale
+    asl
+    asl
+    asl
+    eor #$C0
+    and #$C0
+    clc
+    adc addrl_off
+    sta addrl_off
+    lda addrm_off
+    adc #0
+    sta addrm_off
+
+
     stz Vera::Reg::Ctrl
     VERA_SET_ADDR 0, 1
     inc Vera::Reg::Ctrl
@@ -109,73 +151,51 @@ loop:
     lda xscale
     sta $9F29
     stz $9F2A
-    bne :+
-    lda #1
-    sta $9F2A
-:
     stz $9F2B
-    lda #1
-    sta $9F2C
+    stz $9F2C
 
     ldx #0
 spriteloop1:
-    txa
+    lda xscale
+
+    clc
+    adc ysub
+    sta ysub
+    lda ysub+1
+    adc #0
+    sta ysub+1
+    
     stz tmp0
     lsr
     ror tmp0
     lsr
     ror tmp0
     clc
-    adc #$10
-    sta Vera::Reg::AddrM
-    lda tmp0
+    adc addrm_off
+    sta tmp1
+
+    lda addrl_off
+    clc
+    adc tmp0
     sta Vera::Reg::AddrL   
+
+    lda tmp1
+    adc #0
+    sta Vera::Reg::AddrM
+
 
     ; reset subpixel pos
     stz Vera::Reg::Ctrl
     lda #%00000101 ; Affine mode, leave addrsel 1
     sta Vera::Reg::Ctrl
 
-    ldy #4
-spriteloop2:
+.repeat 64
     lda Vera::Reg::Data0
     sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-    lda Vera::Reg::Data0
-    sta Vera::Reg::Data1
-
-    dey
-    bne spriteloop2
+.endrepeat
 
     inx
-    cmp #64
+    cpx #64
     bcs :+
     jmp spriteloop1
 :
