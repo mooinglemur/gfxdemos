@@ -37,7 +37,7 @@ main:
     jsr X16::Kernal::LOAD
 
 
-    ; load palette into VRAM (4k)
+    ; load palette into VRAM (512b)
     lda #16
     ldx #<clowncar
     ldy #>clowncar
