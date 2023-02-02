@@ -131,6 +131,11 @@ spriteloop1:
     lda tmp0
     sta Vera::Reg::AddrL   
 
+    ; reset subpixel pos
+    stz Vera::Reg::Ctrl
+    lda #%00000101 ; Affine mode, leave addrsel 1
+    sta Vera::Reg::Ctrl
+
     ldy #4
 spriteloop2:
     lda Vera::Reg::Data0
