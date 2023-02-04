@@ -1,3 +1,5 @@
+.import affinetable
+
 .segment "LOADADDR"
     .word $0801
 .segment "BASICSTUB"
@@ -16,12 +18,33 @@ addrm_off:
     .res 1
 addrl_off:
     .res 1
+ysub:
+    .res 2
+iterations:
+    .res 1
+angle:
+    .res 1
+row:
+    .res 1
+
+.segment "ZEROPAGE"
 tmp0:
     .res 1
 tmp1:
     .res 1
-ysub:
+ptr1:
     .res 2
+ptr2:
+    .res 2
+front:
+    .res 1
+pixels:
+    .res 1
+back:
+    .res 1
+quadrant:
+    .res 1
+
 
 .segment "CODE"
 
@@ -100,7 +123,8 @@ main:
     sta Vera::Reg::DCHScale
     sta Vera::Reg::DCVScale
 
-
+    lda #4
+    sta iterations
     stz xscale
 
 loop:
@@ -185,7 +209,6 @@ spriteloop1:
 
 
     ; reset subpixel pos
-    stz Vera::Reg::Ctrl
     lda #%00000101 ; Affine mode, leave addrsel 1
     sta Vera::Reg::Ctrl
 
@@ -199,13 +222,275 @@ spriteloop1:
     bcs :+
     jmp spriteloop1
 :
+    lda xscale
+    bne :+
+    dec iterations
+    beq donescale
+:
     jmp loop
+donescale:
+    ; let's try some rotations
+    stz angle 
+    lda #2
+    sta iterations
 
+angleloop:
+    lda angle
+    asl
+    asl
+    tay
+    lda affinetable, y
+    sta ptr1
+    lda affinetable+1, y
+    sta ptr1+1
+    lda affinetable+2, y
+    sta ptr2
+    lda affinetable+3, y
+    sta ptr2+1
+    
+    ; set addr_h and pixel increments
+    lda angle
+    rol
+    rol
+    rol
+    and #3
+    sta quadrant
+    tay ; quadrant
+
+    stz Vera::Reg::Ctrl
+    lda incxt,y
+    sta Vera::Reg::AddrH
+    ; set addr0 ptr to $1000
+    lda #$10
+    sta Vera::Reg::AddrM
+    stz Vera::Reg::AddrL
+
+    inc Vera::Reg::Ctrl
+    lda incyt,y
+    sta Vera::Reg::AddrH
+
+    ; set X/Y subpixel step
+    lda #%00000100 ; Affine mode
+    sta Vera::Reg::Ctrl
+    ; reset addr0 inc
+    lda #%00010000
+    sta Vera::Reg::AddrH
+
+    bit angle
+    bvs swap
+
+    lda (ptr1)
+    sta Vera::Reg::DCHSubIncL
+    ldy #1
+    lda (ptr1),y
+    sta Vera::Reg::DCHSubIncH
+    iny
+    lda (ptr1),y
+    sta Vera::Reg::DCVSubIncL
+    iny
+    lda (ptr1),y
+    sta Vera::Reg::DCVSubIncH
+    jmp endangle
+swap:
+    lda (ptr1)
+    sta Vera::Reg::DCVSubIncL
+    ldy #1
+    lda (ptr1),y
+    sta Vera::Reg::DCVSubIncH
+    iny
+    lda (ptr1),y
+    sta Vera::Reg::DCHSubIncL
+    iny
+    lda (ptr1),y
+    sta Vera::Reg::DCHSubIncH
+
+endangle:
+    stz row
+
+rowloop:
+
+    lda row
+    asl
+    asl
+    tay
+
+    lda #%00000101 ; affine, addrsel 1
+    sta Vera::Reg::Ctrl
+
+    ldx quadrant
+    lda incyt,x
+    sta Vera::Reg::AddrH
+    
+    lda quadrant
+    beq q0
+    dex
+    beq q1
+    dex
+    beq q2
+q3:
+    lda (ptr2),y
+    sta front ; zeroed bytes to skip
+
+    iny
+    lda (ptr2),y
+    eor #$3f
+
+    stz tmp0
+    lsr
+    ror tmp0
+    lsr
+    ror tmp0
+    sta tmp1
+
+    iny
+    lda (ptr2),y
+
+    ora tmp0
+    sta tmp0
+
+    iny
+    lda (ptr2),y
+    sta back ; zero bytes to write out at the end
+    bra qend
+q2:
+    lda angle
+
+    lda (ptr2),y
+    sta front ; zeroed bytes to skip
+
+    iny
+    lda (ptr2),y
+    eor #$3f
+
+    asl
+    asl
+    sta tmp0
+
+    iny
+    lda (ptr2),y
+    eor #$3f
+
+    lsr
+    ror tmp0
+    lsr
+    ror tmp0
+    sta tmp1
+
+    iny
+    lda (ptr2),y
+    sta back ; zero bytes to write out at the end
+    bra qend
+q1:
+    lda (ptr2),y
+    sta front ; zeroed bytes to skip
+
+    iny
+    lda (ptr2),y
+
+    stz tmp0
+    lsr
+    ror tmp0
+    lsr
+    ror tmp0
+    sta tmp1
+
+    iny
+    lda (ptr2),y
+    eor #$3f
+
+    ora tmp0
+    sta tmp0
+
+    iny
+    lda (ptr2),y
+    sta back ; zero bytes to write out at the end
+    bra qend
+q0:
+    lda (ptr2),y
+    sta front ; zeroed bytes to skip
+
+    iny
+    lda (ptr2),y
+
+    asl
+    asl
+    sta tmp0
+
+    iny
+    lda (ptr2),y
+
+    lsr
+    ror tmp0
+    lsr
+    ror tmp0
+    sta tmp1
+
+    iny
+    lda (ptr2),y
+    sta back ; zero bytes to write out at the end
+
+qend:
+    lda tmp0
+    sta Vera::Reg::AddrL
+    lda tmp1
+    sta Vera::Reg::AddrM    
+
+    lda #64
+    sec
+    sbc front
+    sbc back
+    sta pixels
+
+    ldx front
+    beq prepixelloop
+frontloop:
+    stz Vera::Reg::Data0
+    dex
+    bne frontloop
+
+prepixelloop:
+    ldx pixels
+    beq prebackloop
+pixelloop:
+    lda Vera::Reg::Data1
+    sta Vera::Reg::Data0
+    dex
+    bne pixelloop
+
+prebackloop:
+    ldx back
+    beq endrow
+backloop:
+    stz Vera::Reg::Data0
+    dex
+    bne backloop
+
+endrow:
+    inc row
+    lda row
+    cmp #64
+    beq :+
+    jmp rowloop
+:
+
+    inc angle
+    bne :+
+    dec iterations
+:
+
+    lda iterations
+    bmi :+
+    wai
+:
+    jmp angleloop
 
     rts
 
 clowncar:
     .byte "CLOWNCAR.BIN.PAL"
-
+incxt:
+    .byte %00010000,%00011000,%00011000,%00010000
+incyt:
+    .byte %01110000,%01110000,%01111000,%01111000
 
 bresenham:

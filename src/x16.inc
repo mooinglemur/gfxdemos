@@ -9,7 +9,7 @@ x16_inc = 1
         AddrH      = $9F22    ; (7:4) addr inc (stride), (3) DECR, (2:1) unused, (0): VRAM Address (16)
         Data0      = $9F23    ; VRAM Data port 0
         Data1      = $9F24    ; VRAM Data port 1
-        Ctrl       = $9F25    ; (7) reset, (6:2) unused, (1) DCSEL, (0) ADDRSEL
+        Ctrl       = $9F25    ; (7) reset, (6:3) unused, (2:1) DCSEL, (0) ADDRSEL
         IEN        = $9F26
         ISR        = $9F27
         IRQLineL   = $9F28
@@ -21,6 +21,10 @@ x16_inc = 1
         DCVStart   = $9F2B    ; DCSEL=1
         DCBorder   = $9F2C    ; DCSEL=0
         DCVStop    = $9F2C    ; DCSEL=1
+        DCHSubIncL = $9F29    ; DCSEL=2
+        DCHSubIncH = $9F2A    ; DCSEL=2
+        DCVSubIncL = $9F2B    ; DCSEL=2
+        DCVSubIncH = $9F2C    ; DCSEL=2
         L0Config   = $9F2D
         L0MapBase  = $9F2E
         L0TileBase = $9F2F
