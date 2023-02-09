@@ -174,7 +174,8 @@ loop:
 
     lda xscale
     sta $9F29
-    stz $9F2A
+    lda #$24
+    sta $9F2A
     stz $9F2B
     stz $9F2C
 
@@ -206,7 +207,6 @@ spriteloop1:
     lda tmp1
     adc #0
     sta Vera::Reg::AddrM
-
 
     ; reset subpixel pos
     lda #%00000101 ; Affine mode, leave addrsel 1
@@ -258,8 +258,6 @@ angleloop:
     tay ; quadrant
 
     stz Vera::Reg::Ctrl
-    lda incxt,y
-    sta Vera::Reg::AddrH
     ; set addr0 ptr to $1000
     lda #$10
     sta Vera::Reg::AddrM
@@ -283,6 +281,8 @@ angleloop:
     sta Vera::Reg::DCHSubIncL
     ldy #1
     lda (ptr1),y
+    ldx quadrant
+    ora incxt,x
     sta Vera::Reg::DCHSubIncH
     iny
     lda (ptr1),y
@@ -302,6 +302,8 @@ swap:
     sta Vera::Reg::DCHSubIncL
     iny
     lda (ptr1),y
+    ldx quadrant
+    ora incxt,x
     sta Vera::Reg::DCHSubIncH
 
 endangle:
@@ -489,7 +491,7 @@ endrow:
 clowncar:
     .byte "CLOWNCAR.BIN.PAL"
 incxt:
-    .byte %00010000,%00011000,%00011000,%00010000
+    .byte %00100000,%10100000,%10100000,%00100000
 incyt:
     .byte %01110000,%01110000,%01111000,%01111000
 
