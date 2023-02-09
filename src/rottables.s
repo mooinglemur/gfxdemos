@@ -1,7 +1,7 @@
 .export affinetable
 
 slope_0:
-	.byte $00,$05,$00,$04 ; Affine x inc 1.0000, y inc 0.0000
+	.byte $00,$01,$00,$00 ; Affine x inc 1.0000, y inc 0.0000
 box64_0:
 	.byte $00,$00,$00,$00 ; Row 0
 	.byte $00,$00,$01,$00 ; Row 1
@@ -68,7 +68,7 @@ box64_0:
 	.byte $00,$00,$3e,$00 ; Row 62
 	.byte $00,$00,$3f,$00 ; Row 63
 slope_1:
-	.byte $ff,$04,$06,$04 ; Affine x inc 0.9997, y inc 0.0245
+	.byte $ff,$00,$06,$00 ; Affine x inc 0.9997, y inc 0.0245
 box64_1:
 	.byte $0b,$0c,$00,$01 ; Row 0
 	.byte $00,$01,$00,$01 ; Row 1
@@ -135,7 +135,7 @@ box64_1:
 	.byte $01,$00,$3d,$00 ; Row 62
 	.byte $01,$00,$3e,$0b ; Row 63
 slope_2:
-	.byte $ff,$04,$0c,$04 ; Affine x inc 0.9988, y inc 0.0491
+	.byte $ff,$00,$0c,$00 ; Affine x inc 0.9988, y inc 0.0491
 box64_2:
 	.byte $15,$17,$00,$02 ; Row 0
 	.byte $01,$03,$00,$01 ; Row 1
@@ -202,7 +202,7 @@ box64_2:
 	.byte $01,$00,$3c,$01 ; Row 62
 	.byte $02,$00,$3e,$15 ; Row 63
 slope_3:
-	.byte $ff,$04,$12,$04 ; Affine x inc 0.9973, y inc 0.0736
+	.byte $ff,$00,$12,$00 ; Affine x inc 0.9973, y inc 0.0736
 box64_3:
 	.byte $18,$1a,$00,$02 ; Row 0
 	.byte $0a,$0c,$00,$02 ; Row 1
@@ -269,7 +269,7 @@ box64_3:
 	.byte $02,$00,$3c,$0a ; Row 62
 	.byte $02,$00,$3d,$18 ; Row 63
 slope_4:
-	.byte $fe,$04,$19,$04 ; Affine x inc 0.9952, y inc 0.0980
+	.byte $fe,$00,$19,$00 ; Affine x inc 0.9952, y inc 0.0980
 box64_4:
 	.byte $19,$1c,$00,$03 ; Row 0
 	.byte $0f,$12,$00,$03 ; Row 1
@@ -336,7 +336,7 @@ box64_4:
 	.byte $03,$00,$3b,$0f ; Row 62
 	.byte $03,$00,$3c,$19 ; Row 63
 slope_5:
-	.byte $fe,$04,$1f,$04 ; Affine x inc 0.9925, y inc 0.1224
+	.byte $fe,$00,$1f,$00 ; Affine x inc 0.9925, y inc 0.1224
 box64_5:
 	.byte $1a,$1e,$00,$04 ; Row 0
 	.byte $12,$16,$00,$04 ; Row 1
@@ -403,7 +403,7 @@ box64_5:
 	.byte $04,$00,$3a,$12 ; Row 62
 	.byte $04,$00,$3b,$1a ; Row 63
 slope_6:
-	.byte $fd,$04,$25,$04 ; Affine x inc 0.9892, y inc 0.1467
+	.byte $fd,$00,$25,$00 ; Affine x inc 0.9892, y inc 0.1467
 box64_6:
 	.byte $1a,$1f,$00,$04 ; Row 0
 	.byte $14,$19,$00,$04 ; Row 1
@@ -470,7 +470,7 @@ box64_6:
 	.byte $04,$00,$3a,$14 ; Row 62
 	.byte $04,$00,$3b,$1a ; Row 63
 slope_7:
-	.byte $fc,$04,$2b,$04 ; Affine x inc 0.9853, y inc 0.1710
+	.byte $fc,$00,$2b,$00 ; Affine x inc 0.9853, y inc 0.1710
 box64_7:
 	.byte $1a,$1f,$00,$05 ; Row 0
 	.byte $15,$1a,$00,$05 ; Row 1
@@ -537,7 +537,7 @@ box64_7:
 	.byte $05,$00,$39,$15 ; Row 62
 	.byte $05,$00,$3a,$1a ; Row 63
 slope_8:
-	.byte $fb,$04,$31,$04 ; Affine x inc 0.9808, y inc 0.1951
+	.byte $fb,$00,$31,$00 ; Affine x inc 0.9808, y inc 0.1951
 box64_8:
 	.byte $1a,$20,$00,$06 ; Row 0
 	.byte $15,$1b,$00,$05 ; Row 1
@@ -604,7 +604,7 @@ box64_8:
 	.byte $05,$00,$38,$15 ; Row 62
 	.byte $06,$00,$39,$1a ; Row 63
 slope_9:
-	.byte $f9,$04,$38,$04 ; Affine x inc 0.9757, y inc 0.2191
+	.byte $f9,$00,$38,$00 ; Affine x inc 0.9757, y inc 0.2191
 box64_9:
 	.byte $1a,$21,$00,$06 ; Row 0
 	.byte $16,$1d,$00,$06 ; Row 1
@@ -671,7 +671,7 @@ box64_9:
 	.byte $06,$00,$38,$16 ; Row 62
 	.byte $06,$00,$39,$1a ; Row 63
 slope_10:
-	.byte $f8,$04,$3e,$04 ; Affine x inc 0.9700, y inc 0.2430
+	.byte $f8,$00,$3e,$00 ; Affine x inc 0.9700, y inc 0.2430
 box64_10:
 	.byte $1a,$22,$00,$07 ; Row 0
 	.byte $16,$1e,$00,$07 ; Row 1
@@ -738,7 +738,7 @@ box64_10:
 	.byte $07,$00,$37,$16 ; Row 62
 	.byte $07,$00,$38,$1a ; Row 63
 slope_11:
-	.byte $f6,$04,$44,$04 ; Affine x inc 0.9638, y inc 0.2667
+	.byte $f6,$00,$44,$00 ; Affine x inc 0.9638, y inc 0.2667
 box64_11:
 	.byte $1a,$23,$00,$08 ; Row 0
 	.byte $16,$1e,$00,$07 ; Row 1
@@ -805,7 +805,7 @@ box64_11:
 	.byte $07,$00,$36,$16 ; Row 62
 	.byte $08,$00,$38,$1a ; Row 63
 slope_12:
-	.byte $f4,$04,$4a,$04 ; Affine x inc 0.9569, y inc 0.2903
+	.byte $f4,$00,$4a,$00 ; Affine x inc 0.9569, y inc 0.2903
 box64_12:
 	.byte $1a,$23,$00,$08 ; Row 0
 	.byte $16,$1f,$00,$08 ; Row 1
@@ -872,7 +872,7 @@ box64_12:
 	.byte $08,$00,$36,$16 ; Row 62
 	.byte $08,$00,$37,$1a ; Row 63
 slope_13:
-	.byte $f3,$04,$50,$04 ; Affine x inc 0.9495, y inc 0.3137
+	.byte $f3,$00,$50,$00 ; Affine x inc 0.9495, y inc 0.3137
 box64_13:
 	.byte $19,$23,$00,$09 ; Row 0
 	.byte $16,$20,$00,$08 ; Row 1
@@ -939,7 +939,7 @@ box64_13:
 	.byte $08,$00,$35,$16 ; Row 62
 	.byte $09,$00,$36,$19 ; Row 63
 slope_14:
-	.byte $f1,$04,$56,$04 ; Affine x inc 0.9415, y inc 0.3369
+	.byte $f1,$00,$56,$00 ; Affine x inc 0.9415, y inc 0.3369
 box64_14:
 	.byte $19,$24,$00,$09 ; Row 0
 	.byte $16,$21,$00,$09 ; Row 1
@@ -1006,7 +1006,7 @@ box64_14:
 	.byte $09,$00,$35,$16 ; Row 62
 	.byte $09,$00,$36,$19 ; Row 63
 slope_15:
-	.byte $ee,$04,$5c,$04 ; Affine x inc 0.9330, y inc 0.3599
+	.byte $ee,$00,$5c,$00 ; Affine x inc 0.9330, y inc 0.3599
 box64_15:
 	.byte $19,$25,$00,$0a ; Row 0
 	.byte $16,$22,$00,$09 ; Row 1
@@ -1073,7 +1073,7 @@ box64_15:
 	.byte $09,$00,$34,$16 ; Row 62
 	.byte $0a,$00,$35,$19 ; Row 63
 slope_16:
-	.byte $ec,$04,$61,$04 ; Affine x inc 0.9239, y inc 0.3827
+	.byte $ec,$00,$61,$00 ; Affine x inc 0.9239, y inc 0.3827
 box64_16:
 	.byte $18,$25,$00,$0a ; Row 0
 	.byte $16,$22,$00,$0a ; Row 1
@@ -1140,7 +1140,7 @@ box64_16:
 	.byte $0a,$00,$33,$16 ; Row 62
 	.byte $0a,$00,$34,$18 ; Row 63
 slope_17:
-	.byte $ea,$04,$67,$04 ; Affine x inc 0.9142, y inc 0.4052
+	.byte $ea,$00,$67,$00 ; Affine x inc 0.9142, y inc 0.4052
 box64_17:
 	.byte $18,$25,$00,$0b ; Row 0
 	.byte $16,$23,$00,$0b ; Row 1
@@ -1207,7 +1207,7 @@ box64_17:
 	.byte $0b,$00,$33,$16 ; Row 62
 	.byte $0b,$00,$34,$18 ; Row 63
 slope_18:
-	.byte $e7,$04,$6d,$04 ; Affine x inc 0.9040, y inc 0.4276
+	.byte $e7,$00,$6d,$00 ; Affine x inc 0.9040, y inc 0.4276
 box64_18:
 	.byte $18,$26,$00,$0b ; Row 0
 	.byte $16,$24,$00,$0b ; Row 1
@@ -1274,7 +1274,7 @@ box64_18:
 	.byte $0b,$00,$32,$16 ; Row 62
 	.byte $0b,$00,$33,$18 ; Row 63
 slope_19:
-	.byte $e4,$04,$73,$04 ; Affine x inc 0.8932, y inc 0.4496
+	.byte $e4,$00,$73,$00 ; Affine x inc 0.8932, y inc 0.4496
 box64_19:
 	.byte $17,$26,$00,$0c ; Row 0
 	.byte $15,$24,$00,$0c ; Row 1
@@ -1341,7 +1341,7 @@ box64_19:
 	.byte $0c,$00,$32,$15 ; Row 62
 	.byte $0c,$00,$33,$17 ; Row 63
 slope_20:
-	.byte $e1,$04,$78,$04 ; Affine x inc 0.8819, y inc 0.4714
+	.byte $e1,$00,$78,$00 ; Affine x inc 0.8819, y inc 0.4714
 box64_20:
 	.byte $17,$27,$00,$0d ; Row 0
 	.byte $15,$25,$00,$0c ; Row 1
@@ -1408,7 +1408,7 @@ box64_20:
 	.byte $0c,$00,$31,$15 ; Row 62
 	.byte $0d,$00,$33,$17 ; Row 63
 slope_21:
-	.byte $de,$04,$7e,$04 ; Affine x inc 0.8701, y inc 0.4929
+	.byte $de,$00,$7e,$00 ; Affine x inc 0.8701, y inc 0.4929
 box64_21:
 	.byte $17,$28,$00,$0d ; Row 0
 	.byte $15,$25,$00,$0d ; Row 1
@@ -1475,7 +1475,7 @@ box64_21:
 	.byte $0d,$00,$31,$15 ; Row 62
 	.byte $0d,$00,$32,$17 ; Row 63
 slope_22:
-	.byte $db,$04,$83,$04 ; Affine x inc 0.8577, y inc 0.5141
+	.byte $db,$00,$83,$00 ; Affine x inc 0.8577, y inc 0.5141
 box64_22:
 	.byte $16,$28,$00,$0e ; Row 0
 	.byte $15,$26,$00,$0d ; Row 1
@@ -1542,7 +1542,7 @@ box64_22:
 	.byte $0d,$00,$30,$15 ; Row 62
 	.byte $0e,$00,$32,$16 ; Row 63
 slope_23:
-	.byte $d8,$04,$88,$04 ; Affine x inc 0.8449, y inc 0.5350
+	.byte $d8,$00,$88,$00 ; Affine x inc 0.8449, y inc 0.5350
 box64_23:
 	.byte $16,$28,$00,$0e ; Row 0
 	.byte $14,$26,$00,$0d ; Row 1
@@ -1609,7 +1609,7 @@ box64_23:
 	.byte $0d,$00,$2f,$14 ; Row 62
 	.byte $0e,$00,$31,$16 ; Row 63
 slope_24:
-	.byte $d4,$04,$8e,$04 ; Affine x inc 0.8315, y inc 0.5556
+	.byte $d4,$00,$8e,$00 ; Affine x inc 0.8315, y inc 0.5556
 box64_24:
 	.byte $16,$29,$00,$0f ; Row 0
 	.byte $14,$27,$00,$0e ; Row 1
@@ -1676,7 +1676,7 @@ box64_24:
 	.byte $0e,$00,$2f,$14 ; Row 62
 	.byte $0f,$00,$31,$16 ; Row 63
 slope_25:
-	.byte $d1,$04,$93,$04 ; Affine x inc 0.8176, y inc 0.5758
+	.byte $d1,$00,$93,$00 ; Affine x inc 0.8176, y inc 0.5758
 box64_25:
 	.byte $15,$29,$00,$0f ; Row 0
 	.byte $14,$28,$00,$0e ; Row 1
@@ -1743,7 +1743,7 @@ box64_25:
 	.byte $0e,$00,$2e,$14 ; Row 62
 	.byte $0f,$00,$30,$15 ; Row 63
 slope_26:
-	.byte $cd,$04,$98,$04 ; Affine x inc 0.8032, y inc 0.5957
+	.byte $cd,$00,$98,$00 ; Affine x inc 0.8032, y inc 0.5957
 box64_26:
 	.byte $15,$2a,$00,$10 ; Row 0
 	.byte $13,$28,$00,$0f ; Row 1
@@ -1810,7 +1810,7 @@ box64_26:
 	.byte $0f,$00,$2e,$13 ; Row 62
 	.byte $10,$00,$30,$15 ; Row 63
 slope_27:
-	.byte $c9,$04,$9d,$04 ; Affine x inc 0.7883, y inc 0.6152
+	.byte $c9,$00,$9d,$00 ; Affine x inc 0.7883, y inc 0.6152
 box64_27:
 	.byte $14,$2a,$00,$10 ; Row 0
 	.byte $13,$28,$00,$0f ; Row 1
@@ -1877,7 +1877,7 @@ box64_27:
 	.byte $0f,$00,$2d,$13 ; Row 62
 	.byte $10,$00,$2f,$14 ; Row 63
 slope_28:
-	.byte $c5,$04,$a2,$04 ; Affine x inc 0.7730, y inc 0.6344
+	.byte $c5,$00,$a2,$00 ; Affine x inc 0.7730, y inc 0.6344
 box64_28:
 	.byte $14,$2b,$00,$10 ; Row 0
 	.byte $13,$29,$00,$10 ; Row 1
@@ -1944,7 +1944,7 @@ box64_28:
 	.byte $10,$00,$2d,$13 ; Row 62
 	.byte $10,$00,$2e,$14 ; Row 63
 slope_29:
-	.byte $c1,$04,$a7,$04 ; Affine x inc 0.7572, y inc 0.6532
+	.byte $c1,$00,$a7,$00 ; Affine x inc 0.7572, y inc 0.6532
 box64_29:
 	.byte $14,$2b,$00,$11 ; Row 0
 	.byte $12,$29,$00,$10 ; Row 1
@@ -2011,7 +2011,7 @@ box64_29:
 	.byte $10,$00,$2c,$12 ; Row 62
 	.byte $11,$00,$2e,$14 ; Row 63
 slope_30:
-	.byte $bd,$04,$ab,$04 ; Affine x inc 0.7410, y inc 0.6716
+	.byte $bd,$00,$ab,$00 ; Affine x inc 0.7410, y inc 0.6716
 box64_30:
 	.byte $13,$2b,$00,$11 ; Row 0
 	.byte $12,$2a,$00,$10 ; Row 1
@@ -2078,7 +2078,7 @@ box64_30:
 	.byte $10,$00,$2c,$12 ; Row 62
 	.byte $11,$00,$2d,$13 ; Row 63
 slope_31:
-	.byte $b9,$04,$b0,$04 ; Affine x inc 0.7242, y inc 0.6895
+	.byte $b9,$00,$b0,$00 ; Affine x inc 0.7242, y inc 0.6895
 box64_31:
 	.byte $13,$2c,$00,$12 ; Row 0
 	.byte $12,$2b,$00,$11 ; Row 1
@@ -2145,7 +2145,7 @@ box64_31:
 	.byte $11,$00,$2c,$12 ; Row 62
 	.byte $12,$00,$2d,$13 ; Row 63
 slope_32:
-	.byte $b5,$04,$b5,$04 ; Affine x inc 0.7071, y inc 0.7071
+	.byte $b5,$00,$b5,$00 ; Affine x inc 0.7071, y inc 0.7071
 box64_32:
 	.byte $12,$2c,$00,$12 ; Row 0
 	.byte $11,$2b,$00,$11 ; Row 1
@@ -2212,7 +2212,7 @@ box64_32:
 	.byte $11,$00,$2b,$11 ; Row 62
 	.byte $12,$00,$2c,$12 ; Row 63
 slope_33:
-	.byte $b0,$04,$b9,$04 ; Affine x inc 0.6895, y inc 0.7242
+	.byte $b0,$00,$b9,$00 ; Affine x inc 0.6895, y inc 0.7242
 box64_33:
 	.byte $12,$2d,$00,$13 ; Row 0
 	.byte $11,$2c,$00,$12 ; Row 1
@@ -2279,7 +2279,7 @@ box64_33:
 	.byte $12,$00,$2b,$11 ; Row 62
 	.byte $13,$00,$2c,$12 ; Row 63
 slope_34:
-	.byte $ab,$04,$bd,$04 ; Affine x inc 0.6716, y inc 0.7410
+	.byte $ab,$00,$bd,$00 ; Affine x inc 0.6716, y inc 0.7410
 box64_34:
 	.byte $11,$2d,$00,$13 ; Row 0
 	.byte $10,$2c,$00,$12 ; Row 1
@@ -2346,7 +2346,7 @@ box64_34:
 	.byte $12,$00,$2a,$10 ; Row 62
 	.byte $13,$00,$2b,$11 ; Row 63
 slope_35:
-	.byte $a7,$04,$c1,$04 ; Affine x inc 0.6532, y inc 0.7572
+	.byte $a7,$00,$c1,$00 ; Affine x inc 0.6532, y inc 0.7572
 box64_35:
 	.byte $11,$2e,$00,$14 ; Row 0
 	.byte $10,$2c,$00,$12 ; Row 1
@@ -2413,7 +2413,7 @@ box64_35:
 	.byte $12,$00,$29,$10 ; Row 62
 	.byte $14,$00,$2b,$11 ; Row 63
 slope_36:
-	.byte $a2,$04,$c5,$04 ; Affine x inc 0.6344, y inc 0.7730
+	.byte $a2,$00,$c5,$00 ; Affine x inc 0.6344, y inc 0.7730
 box64_36:
 	.byte $10,$2e,$00,$14 ; Row 0
 	.byte $10,$2d,$00,$13 ; Row 1
@@ -2480,7 +2480,7 @@ box64_36:
 	.byte $13,$00,$29,$10 ; Row 62
 	.byte $14,$00,$2b,$10 ; Row 63
 slope_37:
-	.byte $9d,$04,$c9,$04 ; Affine x inc 0.6152, y inc 0.7883
+	.byte $9d,$00,$c9,$00 ; Affine x inc 0.6152, y inc 0.7883
 box64_37:
 	.byte $10,$2f,$00,$14 ; Row 0
 	.byte $0f,$2d,$00,$13 ; Row 1
@@ -2547,7 +2547,7 @@ box64_37:
 	.byte $13,$00,$28,$0f ; Row 62
 	.byte $14,$00,$2a,$10 ; Row 63
 slope_38:
-	.byte $98,$04,$cd,$04 ; Affine x inc 0.5957, y inc 0.8032
+	.byte $98,$00,$cd,$00 ; Affine x inc 0.5957, y inc 0.8032
 box64_38:
 	.byte $10,$30,$00,$15 ; Row 0
 	.byte $0f,$2e,$00,$13 ; Row 1
@@ -2614,7 +2614,7 @@ box64_38:
 	.byte $13,$00,$28,$0f ; Row 62
 	.byte $15,$00,$2a,$10 ; Row 63
 slope_39:
-	.byte $93,$04,$d1,$04 ; Affine x inc 0.5758, y inc 0.8176
+	.byte $93,$00,$d1,$00 ; Affine x inc 0.5758, y inc 0.8176
 box64_39:
 	.byte $0f,$30,$00,$15 ; Row 0
 	.byte $0e,$2e,$00,$14 ; Row 1
@@ -2681,7 +2681,7 @@ box64_39:
 	.byte $14,$00,$28,$0e ; Row 62
 	.byte $15,$00,$29,$0f ; Row 63
 slope_40:
-	.byte $8e,$04,$d4,$04 ; Affine x inc 0.5556, y inc 0.8315
+	.byte $8e,$00,$d4,$00 ; Affine x inc 0.5556, y inc 0.8315
 box64_40:
 	.byte $0f,$31,$00,$16 ; Row 0
 	.byte $0e,$2f,$00,$14 ; Row 1
@@ -2748,7 +2748,7 @@ box64_40:
 	.byte $14,$00,$27,$0e ; Row 62
 	.byte $16,$00,$29,$0f ; Row 63
 slope_41:
-	.byte $88,$04,$d8,$04 ; Affine x inc 0.5350, y inc 0.8449
+	.byte $88,$00,$d8,$00 ; Affine x inc 0.5350, y inc 0.8449
 box64_41:
 	.byte $0e,$31,$00,$16 ; Row 0
 	.byte $0d,$2f,$00,$14 ; Row 1
@@ -2815,7 +2815,7 @@ box64_41:
 	.byte $14,$00,$26,$0d ; Row 62
 	.byte $16,$00,$28,$0e ; Row 63
 slope_42:
-	.byte $83,$04,$db,$04 ; Affine x inc 0.5141, y inc 0.8577
+	.byte $83,$00,$db,$00 ; Affine x inc 0.5141, y inc 0.8577
 box64_42:
 	.byte $0e,$32,$00,$16 ; Row 0
 	.byte $0d,$30,$00,$15 ; Row 1
@@ -2882,7 +2882,7 @@ box64_42:
 	.byte $15,$00,$26,$0d ; Row 62
 	.byte $16,$00,$28,$0e ; Row 63
 slope_43:
-	.byte $7e,$04,$de,$04 ; Affine x inc 0.4929, y inc 0.8701
+	.byte $7e,$00,$de,$00 ; Affine x inc 0.4929, y inc 0.8701
 box64_43:
 	.byte $0d,$32,$00,$17 ; Row 0
 	.byte $0d,$31,$00,$15 ; Row 1
@@ -2949,7 +2949,7 @@ box64_43:
 	.byte $15,$00,$25,$0d ; Row 62
 	.byte $17,$00,$28,$0d ; Row 63
 slope_44:
-	.byte $78,$04,$e1,$04 ; Affine x inc 0.4714, y inc 0.8819
+	.byte $78,$00,$e1,$00 ; Affine x inc 0.4714, y inc 0.8819
 box64_44:
 	.byte $0d,$33,$00,$17 ; Row 0
 	.byte $0c,$31,$00,$15 ; Row 1
@@ -3016,7 +3016,7 @@ box64_44:
 	.byte $15,$00,$25,$0c ; Row 62
 	.byte $17,$00,$27,$0d ; Row 63
 slope_45:
-	.byte $73,$04,$e4,$04 ; Affine x inc 0.4496, y inc 0.8932
+	.byte $73,$00,$e4,$00 ; Affine x inc 0.4496, y inc 0.8932
 box64_45:
 	.byte $0c,$33,$00,$17 ; Row 0
 	.byte $0c,$32,$00,$15 ; Row 1
@@ -3083,7 +3083,7 @@ box64_45:
 	.byte $15,$00,$24,$0c ; Row 62
 	.byte $17,$00,$26,$0c ; Row 63
 slope_46:
-	.byte $6d,$04,$e7,$04 ; Affine x inc 0.4276, y inc 0.9040
+	.byte $6d,$00,$e7,$00 ; Affine x inc 0.4276, y inc 0.9040
 box64_46:
 	.byte $0b,$33,$00,$18 ; Row 0
 	.byte $0b,$32,$00,$16 ; Row 1
@@ -3150,7 +3150,7 @@ box64_46:
 	.byte $16,$00,$24,$0b ; Row 62
 	.byte $18,$00,$26,$0b ; Row 63
 slope_47:
-	.byte $67,$04,$ea,$04 ; Affine x inc 0.4052, y inc 0.9142
+	.byte $67,$00,$ea,$00 ; Affine x inc 0.4052, y inc 0.9142
 box64_47:
 	.byte $0b,$34,$00,$18 ; Row 0
 	.byte $0b,$33,$00,$16 ; Row 1
@@ -3217,7 +3217,7 @@ box64_47:
 	.byte $16,$00,$23,$0b ; Row 62
 	.byte $18,$00,$25,$0b ; Row 63
 slope_48:
-	.byte $61,$04,$ec,$04 ; Affine x inc 0.3827, y inc 0.9239
+	.byte $61,$00,$ec,$00 ; Affine x inc 0.3827, y inc 0.9239
 box64_48:
 	.byte $0a,$34,$00,$18 ; Row 0
 	.byte $0a,$33,$00,$16 ; Row 1
@@ -3284,7 +3284,7 @@ box64_48:
 	.byte $16,$00,$22,$0a ; Row 62
 	.byte $18,$00,$25,$0a ; Row 63
 slope_49:
-	.byte $5c,$04,$ee,$04 ; Affine x inc 0.3599, y inc 0.9330
+	.byte $5c,$00,$ee,$00 ; Affine x inc 0.3599, y inc 0.9330
 box64_49:
 	.byte $0a,$35,$00,$19 ; Row 0
 	.byte $09,$34,$00,$16 ; Row 1
@@ -3351,7 +3351,7 @@ box64_49:
 	.byte $16,$00,$22,$09 ; Row 62
 	.byte $19,$00,$25,$0a ; Row 63
 slope_50:
-	.byte $56,$04,$f1,$04 ; Affine x inc 0.3369, y inc 0.9415
+	.byte $56,$00,$f1,$00 ; Affine x inc 0.3369, y inc 0.9415
 box64_50:
 	.byte $09,$36,$00,$19 ; Row 0
 	.byte $09,$35,$00,$16 ; Row 1
@@ -3418,7 +3418,7 @@ box64_50:
 	.byte $16,$00,$21,$09 ; Row 62
 	.byte $19,$00,$24,$09 ; Row 63
 slope_51:
-	.byte $50,$04,$f3,$04 ; Affine x inc 0.3137, y inc 0.9495
+	.byte $50,$00,$f3,$00 ; Affine x inc 0.3137, y inc 0.9495
 box64_51:
 	.byte $09,$36,$00,$19 ; Row 0
 	.byte $08,$35,$00,$16 ; Row 1
@@ -3485,7 +3485,7 @@ box64_51:
 	.byte $16,$00,$20,$08 ; Row 62
 	.byte $19,$00,$23,$09 ; Row 63
 slope_52:
-	.byte $4a,$04,$f4,$04 ; Affine x inc 0.2903, y inc 0.9569
+	.byte $4a,$00,$f4,$00 ; Affine x inc 0.2903, y inc 0.9569
 box64_52:
 	.byte $08,$37,$00,$1a ; Row 0
 	.byte $08,$36,$00,$16 ; Row 1
@@ -3552,7 +3552,7 @@ box64_52:
 	.byte $16,$00,$1f,$08 ; Row 62
 	.byte $1a,$00,$23,$08 ; Row 63
 slope_53:
-	.byte $44,$04,$f6,$04 ; Affine x inc 0.2667, y inc 0.9638
+	.byte $44,$00,$f6,$00 ; Affine x inc 0.2667, y inc 0.9638
 box64_53:
 	.byte $08,$38,$00,$1a ; Row 0
 	.byte $07,$36,$00,$16 ; Row 1
@@ -3619,7 +3619,7 @@ box64_53:
 	.byte $16,$00,$1e,$07 ; Row 62
 	.byte $1a,$00,$23,$08 ; Row 63
 slope_54:
-	.byte $3e,$04,$f8,$04 ; Affine x inc 0.2430, y inc 0.9700
+	.byte $3e,$00,$f8,$00 ; Affine x inc 0.2430, y inc 0.9700
 box64_54:
 	.byte $07,$38,$00,$1a ; Row 0
 	.byte $07,$37,$00,$16 ; Row 1
@@ -3686,7 +3686,7 @@ box64_54:
 	.byte $16,$00,$1e,$07 ; Row 62
 	.byte $1a,$00,$22,$07 ; Row 63
 slope_55:
-	.byte $38,$04,$f9,$04 ; Affine x inc 0.2191, y inc 0.9757
+	.byte $38,$00,$f9,$00 ; Affine x inc 0.2191, y inc 0.9757
 box64_55:
 	.byte $06,$39,$00,$1a ; Row 0
 	.byte $06,$38,$00,$16 ; Row 1
@@ -3753,7 +3753,7 @@ box64_55:
 	.byte $16,$00,$1d,$06 ; Row 62
 	.byte $1a,$00,$21,$06 ; Row 63
 slope_56:
-	.byte $31,$04,$fb,$04 ; Affine x inc 0.1951, y inc 0.9808
+	.byte $31,$00,$fb,$00 ; Affine x inc 0.1951, y inc 0.9808
 box64_56:
 	.byte $06,$39,$00,$1a ; Row 0
 	.byte $05,$38,$00,$15 ; Row 1
@@ -3820,7 +3820,7 @@ box64_56:
 	.byte $15,$00,$1b,$05 ; Row 62
 	.byte $1a,$00,$20,$06 ; Row 63
 slope_57:
-	.byte $2b,$04,$fc,$04 ; Affine x inc 0.1710, y inc 0.9853
+	.byte $2b,$00,$fc,$00 ; Affine x inc 0.1710, y inc 0.9853
 box64_57:
 	.byte $05,$3a,$00,$1a ; Row 0
 	.byte $05,$39,$00,$15 ; Row 1
@@ -3887,7 +3887,7 @@ box64_57:
 	.byte $15,$00,$1a,$05 ; Row 62
 	.byte $1a,$00,$1f,$05 ; Row 63
 slope_58:
-	.byte $25,$04,$fd,$04 ; Affine x inc 0.1467, y inc 0.9892
+	.byte $25,$00,$fd,$00 ; Affine x inc 0.1467, y inc 0.9892
 box64_58:
 	.byte $04,$3b,$00,$1a ; Row 0
 	.byte $04,$3a,$00,$14 ; Row 1
@@ -3954,7 +3954,7 @@ box64_58:
 	.byte $14,$00,$19,$04 ; Row 62
 	.byte $1a,$00,$1f,$04 ; Row 63
 slope_59:
-	.byte $1f,$04,$fe,$04 ; Affine x inc 0.1224, y inc 0.9925
+	.byte $1f,$00,$fe,$00 ; Affine x inc 0.1224, y inc 0.9925
 box64_59:
 	.byte $04,$3b,$00,$1a ; Row 0
 	.byte $04,$3a,$00,$12 ; Row 1
@@ -4021,7 +4021,7 @@ box64_59:
 	.byte $12,$00,$16,$04 ; Row 62
 	.byte $1a,$00,$1e,$04 ; Row 63
 slope_60:
-	.byte $19,$04,$fe,$04 ; Affine x inc 0.0980, y inc 0.9952
+	.byte $19,$00,$fe,$00 ; Affine x inc 0.0980, y inc 0.9952
 box64_60:
 	.byte $03,$3c,$00,$19 ; Row 0
 	.byte $03,$3b,$00,$0f ; Row 1
@@ -4088,7 +4088,7 @@ box64_60:
 	.byte $0f,$00,$12,$03 ; Row 62
 	.byte $19,$00,$1c,$03 ; Row 63
 slope_61:
-	.byte $12,$04,$ff,$04 ; Affine x inc 0.0736, y inc 0.9973
+	.byte $12,$00,$ff,$00 ; Affine x inc 0.0736, y inc 0.9973
 box64_61:
 	.byte $02,$3d,$00,$18 ; Row 0
 	.byte $02,$3c,$00,$0a ; Row 1
@@ -4155,7 +4155,7 @@ box64_61:
 	.byte $0a,$00,$0c,$02 ; Row 62
 	.byte $18,$00,$1a,$02 ; Row 63
 slope_62:
-	.byte $0c,$04,$ff,$04 ; Affine x inc 0.0491, y inc 0.9988
+	.byte $0c,$00,$ff,$00 ; Affine x inc 0.0491, y inc 0.9988
 box64_62:
 	.byte $02,$3e,$00,$15 ; Row 0
 	.byte $01,$3c,$00,$01 ; Row 1
@@ -4222,7 +4222,7 @@ box64_62:
 	.byte $01,$00,$03,$01 ; Row 62
 	.byte $15,$00,$17,$02 ; Row 63
 slope_63:
-	.byte $06,$04,$ff,$04 ; Affine x inc 0.0245, y inc 0.9997
+	.byte $06,$00,$ff,$00 ; Affine x inc 0.0245, y inc 0.9997
 box64_63:
 	.byte $01,$3e,$00,$0b ; Row 0
 	.byte $01,$3d,$00,$00 ; Row 1

@@ -44,6 +44,8 @@ back:
     .res 1
 quadrant:
     .res 1
+zoom:
+    .res 1
 
 
 .segment "CODE"
@@ -234,8 +236,22 @@ donescale:
     lda #2
     sta iterations
 
+    lda Vera::Reg::L0Config
+    and #$0F
+    ora #$53
+    sta Vera::Reg::L0Config
+
+    stz zoom
+
 angleloop:
     lda angle
+    bne :+
+    lda zoom
+    inc
+    and #3
+    sta zoom
+    lda angle
+:
     asl
     asl
     tay
@@ -280,7 +296,10 @@ angleloop:
     lda (ptr1)
     sta Vera::Reg::DCHSubIncL
     ldy #1
-    lda (ptr1),y
+    lda zoom
+    asl
+    asl
+    ora (ptr1),y
     ldx quadrant
     ora incxt,x
     sta Vera::Reg::DCHSubIncH
@@ -288,20 +307,31 @@ angleloop:
     lda (ptr1),y
     sta Vera::Reg::DCVSubIncL
     iny
-    lda (ptr1),y
+    lda zoom
+    asl
+    asl
+    ora (ptr1),y
+    ora #$20
     sta Vera::Reg::DCVSubIncH
     jmp endangle
 swap:
     lda (ptr1)
     sta Vera::Reg::DCVSubIncL
     ldy #1
-    lda (ptr1),y
+    lda zoom
+    asl
+    asl
+    ora (ptr1),y
+    ora #$20
     sta Vera::Reg::DCVSubIncH
     iny
     lda (ptr1),y
     sta Vera::Reg::DCHSubIncL
     iny
-    lda (ptr1),y
+    lda zoom
+    asl
+    asl
+    ora (ptr1),y
     ldx quadrant
     ora incxt,x
     sta Vera::Reg::DCHSubIncH

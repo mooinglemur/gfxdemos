@@ -37,7 +37,7 @@ for angle in range(64): # 256 8-bit degrees
             affine_inc_row = math.sin(arad)
             affine_inc_col = math.cos(arad)
             print("slope_{:d}:".format(angle))
-            print("\t.byte ${:02x},${:02x},${:02x},${:02x} ; Affine x inc {:0.4f}, y inc {:0.4f}".format(int((affine_inc_col-int(affine_inc_col)) * 256) & 0xff, (int(affine_inc_col) & 0xff) | 0x4,int((affine_inc_row-int(affine_inc_row)) * 256) & 0xff, (int(affine_inc_row) & 0xff) | 0x4,affine_inc_col,affine_inc_row))
+            print("\t.byte ${:02x},${:02x},${:02x},${:02x} ; Affine x inc {:0.4f}, y inc {:0.4f}".format(int((affine_inc_col-int(affine_inc_col)) * 256) & 0xff, (int(affine_inc_col) & 0xff),int((affine_inc_row-int(affine_inc_row)) * 256) & 0xff, (int(affine_inc_row) & 0xff),affine_inc_col,affine_inc_row))
             print("box64_{:d}:".format(angle))
         print("\t.byte ${:02x},${:02x},${:02x},${:02x} ; Row {}".format(oob_l,int(start_l[0]),int(start_l[1]),oob_r,row))
 
