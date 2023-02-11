@@ -25,6 +25,9 @@ x16_inc = 1
         DCHSubIncH = $9F2A    ; DCSEL=2
         DCVSubIncL = $9F2B    ; DCSEL=2
         DCVSubIncH = $9F2C    ; DCSEL=2
+        DCHSubAccL = $9F29    ; DCSEL=3
+        DCVSubAccL = $9F2A    ; DCSEL=3
+        DCSubAccH  = $9F2B    ; DCSEL=3
         L0Config   = $9F2D
         L0MapBase  = $9F2E
         L0TileBase = $9F2F
