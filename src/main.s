@@ -102,7 +102,7 @@ main:
     lda #%00000111 ; dcsel 3, addrsel 1
     sta Vera::Reg::Ctrl
 
-    lda #%00000100 ; repeat mode
+    lda #%00001000 ; repeat mode
     sta Vera::Reg::DCSubAccH
 
     lda #%10100111 ; 64x64 bitmap mode for affine helper
@@ -145,7 +145,7 @@ angleloop:
 
     iny
     lda Vera::Reg::AddrH
-    and #%00000111
+    and #%00000110
     ora (ptr1),y
     ora #$70
     sta Vera::Reg::AddrH

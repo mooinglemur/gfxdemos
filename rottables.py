@@ -51,12 +51,10 @@ for angle in range(256): # 256 8-bit degrees
     affine_inc_row_l = int((affine_inc_row - int(affine_inc_row)) * 0xff)
     affine_inc_row_h = int(affine_inc_row) & 0xff
 
-    # we actually don't care about the address for this table, and we'll base
-    # it off of 0x0000, reset it here
-    addr = 0
     addr += int(x2) + (int(y2)*64)
     addr_l = addr & 0xff
-    addr_h = (addr >> 8) & 0xff
+    addr_m = (addr >> 8) & 0xff
+    addr_h = (addr >> 16) & 0x1
 
     dec = (affine_row_dec << 3)
 
@@ -66,7 +64,7 @@ for angle in range(256): # 256 8-bit degrees
     affine_inc_row_h |= 0x24
 
     print("box64_{:d}: ; x_inc: {:.4f} y_inc: {:.4f}".format(angle,affine_inc_col,affine_inc_row))
-    print("\t.byte ${:02x},${:02x},${:02x},${:02x},${:02x},${:02x},${:02x}".format(addr_l,addr_h,dec,affine_inc_col_l,affine_inc_col_h,affine_inc_row_l,affine_inc_row_h))
+    print("\t.byte ${:02x},${:02x},${:02x},${:02x},${:02x},${:02x},${:02x}".format(addr_l,addr_m,(addr_h | dec),affine_inc_col_l,affine_inc_col_h,affine_inc_row_l,affine_inc_row_h))
 
 print("affinetable_l:")    
 for angle in range(256):
